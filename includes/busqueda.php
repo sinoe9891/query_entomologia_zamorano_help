@@ -1,5 +1,5 @@
 
-  <?php  
+  <?php
 require_once('base/conexion.php');
 // Aqui validamos si la variable $_POST["busca"] existe como validacion
 // Si es que esta cargando la pagina o haciendo una bsuqueda.
@@ -14,7 +14,7 @@ if(empty($_POST))
     }elseif ($_POST["search"]=="genus") {
       $busca=htmlspecialchars($_POST["autoGenus"]);
     }
-    
+
     //Validacion interna de lo valores en el campo de busqueda
     if(filter_var($_POST, FILTER_VALIDATE_INT)){
       echo "You must write letters from A - Z";
@@ -25,7 +25,7 @@ if(empty($_POST))
       $resultado = $mysqli->query($busqueda); 
       //Ejecución de la consulta
       //Si hay resultados...
-      if (mysqli_num_rows($resultado) > 0){ 
+      if (mysqli_num_rows($resultado) > 0){
         echo '<h4 align="center">WE HAVE FOUND ' . mysqli_num_rows($resultado) . ' RECORDS FOR "'.$busca.'"</h4>';
         echo '<table class="striped responsive-table" id="myTable">
            <thead>
